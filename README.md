@@ -6,6 +6,10 @@ cd apps
 
 # apos acessar a pasta apps para rodar o manage.py utilize a seguinte sintaxe
 
+python ..\manage.py startapp product
+
+# depois
+
 python ..\manage.py runserver
 
 # ou 
