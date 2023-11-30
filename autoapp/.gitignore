@@ -4,3 +4,5 @@ modeloapp/__pycache__/*
 /apps/categories/migrations/*
 /apps/vehicle/__pycache__/*
 /apps/vehicle/migrations/*
+/apps/socialnetworks/__pycache__/*
+/apps/socialnetworks/migrations/*
