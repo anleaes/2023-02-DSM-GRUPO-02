@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('categorias/', include('categories.urls', namespace='categories')),
     path('veiculos/', include('vehicle.urls', namespace='vehicle')),
-
+    path('redessociais/', include('socialnetworks.urls', namespace='socialnetworks')),
 ]
