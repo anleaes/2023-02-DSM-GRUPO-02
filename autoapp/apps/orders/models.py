@@ -1,5 +1,5 @@
 from django.db import models
-from products.models import Product
+from categories.models import Category
 from clients.models import Client
 
 
@@ -14,7 +14,7 @@ class Order(models.Model):
     )
     status = models.CharField('Status', max_length=20, choices=STATUS_CHOICES, null=True, blank=True, default='Em andamento')
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    order_item = models.ManyToManyField(Product, through='OrderItem', blank=True)
+    order_item = models.ManyToManyField(Order, through='OrderItem', blank=True)
     
     class Meta:
         verbose_name = 'Pedido'
@@ -26,14 +26,14 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    quantity = models.IntegerField('Quantidade',null=True, blank=True,default=0)
-    unitary_price = models.FloatField('Preco unitario',null=True, blank=True, default=0.0)
+    status = models.CharField('Status', max_length=20)
+    total_price = models.DecimalField('Preco total',null=True, blank=True, default=0.0)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    payment_method = models.CharField(max_length=50)
 
     class Meta:
-        verbose_name = 'Item de pedido'
-        verbose_name_plural = 'Itens de pedido'
+        verbose_name = 'Carro de pedido'
+        verbose_name_plural = 'Carros'
         ordering =['id']
 
     def __str__(self):
