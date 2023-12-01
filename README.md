@@ -95,3 +95,16 @@ vehicle --* driver
 @enduml
 
 
+
+class Driver(models.Model):
+    driver_first_name = models.CharField(max_length=255)
+    driver_last_name = models.CharField(max_length=255)
+    driver_address = models.CharField(max_length=255)
+    driver_cellphone = models.CharField(max_length=15)
+    driver_email = models.EmailField()
+    license = models.CharField(max_length=50)
+    order = models.OneToOneField(Order, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.driver_first_name} {self.driver_last_name}"
+
