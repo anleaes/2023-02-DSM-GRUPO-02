@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'vehicle.apps.VehicleConfig',
     'socialnetworks.apps.SocialnetworksConfig',
     'clients.apps.ClientsConfig',
+    'orders.apps.OrdersConfig',
 
 ]
 
